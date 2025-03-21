@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layoutDirection="rtl"
+    android:backgroundTint="@android:color/transparent"
+    app:strokeColor="@android:color/transparent"
+
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="5dp"
+        android:padding="8dp"
+
+        >
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/home_icon_recycler"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/word"
+            app:shapeAppearance="@style/custom_shape"
+
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintStart_toEndOf="@id/home_icon_recycler"
+            android:layout_marginStart="20dp"
+
+            tools:ignore="MissingConstraints">
+            <TextView
+                android:id="@+id/home_title_recycler"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="coverletter.docx"
+                android:textSize="18sp"
+                android:textStyle="bold"
+
+
+
+                />
+            <TextView
+                android:id="@+id/home_date_recycler"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="November 23, 2023"
+                android:textSize="12sp"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/grey"
+
+                />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/home_size_recycler"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="350Kb"
+            android:textSize="14sp"
+            android:textColor="@color/grey"
+
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,32 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.PCStorage" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <item name="colorPrimary">@color/rhino</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="colorSecondary">@color/rhino</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <item name="colorSurface">@color/solitude</item>
+        <item name="colorOnSurface">@color/cornflower_blue</item>
+        
+        <item name="android:colorBackground">@color/white</item>
+        <item name="colorOnBackground">@color/black</item>
+        
+        <item name="colorPrimaryContainer">@color/rhino</item>
+        <item name="colorOnPrimaryContainer">@color/white</item>
+
+        <item name="colorError">@color/rhino</item>
+        <item name="colorOnError">@color/white</item>
+
+        <item name="colorSurfaceVariant">@color/light_grey</item>
+        <item name="colorOnSurfaceVariant">@color/grey</item>
+
+        <item name="colorOutline">@color/grey</item>
+    </style>
+
+    <style name="custom_shape">   <item name="cornerSize">50%</item>
+    </style>
+    <style name="Theme.PCStorage" parent="Base.Theme.PCStorage" />
+</resources>

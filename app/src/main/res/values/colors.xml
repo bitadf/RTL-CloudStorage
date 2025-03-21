@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="rhino">#39386B</color>
+    <color name="grey">#868686</color>
+    <color name="light_grey">#f0f0f0</color>
+
+    <color name="solitude">#eef7fe</color>
+    <color name="cornflower_blue">#567df4</color>
+
+    <color name="early_down">#fffae5</color>
+    <color name="saffron">#f3c939</color>
+
+    <color name="bridesmaid">#feeeee</color>
+    <color name="carnation">#f45555</color>
+
+    <color name="twilight_blue">#f0ffff</color>
+    <color name="turquoise_blue">#6de7e7</color>
+
+    <color name="hawkes_blue">#eef2fe</color>
+
+
+    <color name="pastel_green">#4ce365</color>
+    <color name="supernova">#ffc700</color>
+    <color name="crusta">#ff842a</color>
+
+
+
+</resources>

@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">PCStorage</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Home">خانه</string>
+    <string name="Profile">پروفایل</string>
+    <string name="Storage">حافظه</string>
+    <string name="Add">افزودن فایل</string>
+    <string name="searchHint">سرچ فولدر</string>
+    <string name="Images">تصاویر</string>
+    <string name="Videos">فیلم ها</string>
+    <string name="Documents">اسناد</string>
+    <string name="All">همه</string>
+    <string name="folders">پوشه ها</string>
+    <string name="recent_uploads">آپلود های اخیر</string>
+</resources>
