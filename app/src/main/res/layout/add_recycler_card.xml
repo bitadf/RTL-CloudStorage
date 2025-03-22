@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="3dp"
+    android:layoutDirection="rtl"
+    app:strokeColor="@android:color/transparent"
+    android:layout_margin="10dp"
+    android:id="@+id/add_recycler_card">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <androidx.appcompat.widget.AppCompatImageView
+
+                android:id="@+id/add_recycler_folder_icon"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:src="@drawable/baseline_folder_24"
+                tools:ignore="MissingConstraints" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintStart_toEndOf="@id/add_recycler_folder_icon"
+                android:layout_marginStart="8dp"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:id="@+id/add_recycler_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ebooks.txt"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    />
+                <TextView
+                    android:id="@+id/add_recycler_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="85/85/85"
+                    android:textSize="12sp"
+
+                    />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/add_recycler_clear_icon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+               app:layout_constraintEnd_toEndOf="parent"
+                android:src="@drawable/baseline_clear_24"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="8"
+            >
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/add_recycler_progressbar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:indicatorColor="@color/white"
+                app:trackColor="@color/black"
+                app:trackThickness="4dp"
+                app:indicatorDirectionLinear="endToStart"
+                android:layout_weight="7"
+                android:progress="50"
+                android:indeterminate="false"
+                />
+            <TextView
+                android:id="@+id/add_recycler_progress_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="69%"
+                android:layout_weight="1"
+                android:gravity="end"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
