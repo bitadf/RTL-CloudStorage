@@ -6,19 +6,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pcstorage.R
+import com.example.pcstorage.adapter.HomeGridAdapter
 import com.example.pcstorage.adapter.UploadRecyclerAdapter
 import com.example.pcstorage.data.AddUploadItem
+import com.example.pcstorage.data.HomeGridItem
 import com.example.pcstorage.databinding.FragmentAddBinding
 import com.example.pcstorage.databinding.FragmentHomeBinding
 
 class AddFragment : Fragment() {
 
     private lateinit var binding : FragmentAddBinding
+
     private lateinit var uploadAdapter : UploadRecyclerAdapter
     private lateinit var uploadRecycler : RecyclerView
+
+    private lateinit var recentAdapter: HomeGridAdapter
+    private lateinit var recentRecycler  :RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +40,7 @@ class AddFragment : Fragment() {
 
         uploadRecycler = binding.addUploadRecycler
         uploadRecycler.layoutManager = LinearLayoutManager(requireContext())
+        uploadRecycler.isNestedScrollingEnabled = false
 
         val bgColors = listOf(
             ContextCompat.getColor(requireContext(),R.color.bridesmaid),
@@ -65,6 +73,17 @@ class AddFragment : Fragment() {
         }
         uploadAdapter = UploadRecyclerAdapter(items)
         uploadRecycler.adapter = uploadAdapter
+
+        recentRecycler = binding.addGridRecycler
+        recentRecycler.layoutManager = GridLayoutManager(requireContext() , 2)
+        recentRecycler.isNestedScrollingEnabled = false
+
+        val recentItems = mutableListOf<HomeGridItem>()
+        for(i in 0..2){
+            recentItems.add(HomeGridItem(titles[i] , "220Mb" , bgColors[i] , colors[i]))
+        }
+        recentAdapter = HomeGridAdapter(recentItems)
+        recentRecycler.adapter = recentAdapter
 
     }
 }

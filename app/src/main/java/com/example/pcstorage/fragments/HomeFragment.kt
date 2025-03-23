@@ -40,6 +40,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         gridRecyclerView = binding.recyclerView
         gridRecyclerView.layoutManager = GridLayoutManager(requireContext() , 2)
+        gridRecyclerView.isNestedScrollingEnabled = false
 
         val cards = listOf(
             HomeGridItem( getString(R.string.Images) , "20Gb" , ContextCompat.getColor(requireContext(),R.color.bridesmaid),ContextCompat.getColor(requireContext() , R.color.carnation)),
@@ -50,6 +51,7 @@ class HomeFragment : Fragment() {
 
         gridAdapter = HomeGridAdapter(cards)
         gridRecyclerView.adapter = gridAdapter
+
 
 
         recentRecycler = binding.uploadRecyclerView
@@ -70,6 +72,8 @@ class HomeFragment : Fragment() {
         )
         recentAdapter = HomeRecyclerAdapter(recent)
         recentRecycler.adapter = recentAdapter
+
+
 
     }
 
