@@ -32,7 +32,7 @@ class StorageTrackAdapter(private val storageItemList : List<StorageTrackItem>):
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = storageItemList[position]
-        holder.icon.setBackgroundColor(currentItem.color)
+        holder.icon.setColorFilter(currentItem.color)
         holder.title.text = currentItem.title
         holder.size.text = "${currentItem.size.toString()} Mb"
         holder.progress.trackColor = currentItem.color

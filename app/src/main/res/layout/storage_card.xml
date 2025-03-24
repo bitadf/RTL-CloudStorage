@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="4dp"
+
     android:padding="1dp"
     android:layoutDirection="rtl"
     android:layout_margin="10dp"
@@ -21,9 +21,8 @@
             android:layout_height="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-
-            android:background="@drawable/round_bg"
-            android:backgroundTint="@color/pastel_green"
+            android:src="@drawable/baseline_circle_24"
+            android:tint="@color/pastel_green"
             android:layout_margin="12dp"
             />
         <LinearLayout

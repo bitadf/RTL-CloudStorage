@@ -16,4 +16,6 @@
     <string name="inProgress">درحال بارگذاری</string>
     <string name="available_resources">فضای آزاد</string>
     <string name="total_storage">کل حافظه</string>
+    <string name="filled_space">فضای اشغال</string>
+    <string name="other">سایر</string>
 </resources>
