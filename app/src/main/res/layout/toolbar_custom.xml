@@ -17,7 +17,7 @@
         android:textAlignment="textStart"
         android:layout_gravity="center"
         android:textColor="@color/black"
-
+        android:textSize="25sp"
         android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
         tools:ignore="RtlCompat" />
 

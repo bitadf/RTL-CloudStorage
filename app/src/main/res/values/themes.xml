@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.PCStorage" parent="Theme.Material3.DayNight.NoActionBar">
-
+        <item name="android:fontFamily">@font/kamran_font</item>
         <item name="colorPrimary">@color/rhino</item>
         <item name="colorOnPrimary">@color/white</item>
 

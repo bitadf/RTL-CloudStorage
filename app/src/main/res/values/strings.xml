@@ -18,4 +18,7 @@
     <string name="total_storage">کل حافظه</string>
     <string name="filled_space">فضای اشغال</string>
     <string name="other">سایر</string>
+    <string name="change_password">تغییر رمز عبور</string>
+    <string name="shared_folders">پوشه های مشترک</string>
+    <string name="shared_files">فایل های مشترک</string>
 </resources>

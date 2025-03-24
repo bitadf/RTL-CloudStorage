@@ -23,6 +23,7 @@
             android:textAlignment="textStart"
             android:layout_gravity="center"
             android:textColor="@color/black"
+            android:textSize="28sp"
             android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
             tools:ignore="RtlCompat" />
     </androidx.appcompat.widget.Toolbar>

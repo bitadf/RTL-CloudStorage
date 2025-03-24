@@ -37,7 +37,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:text="@string/inProgress"
-                    android:textSize="20sp"
+                    android:textSize="22sp"
                     android:textStyle="bold"/>
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -62,7 +62,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:text="@string/recent_uploads"
-                    android:textSize="20sp"
+                    android:textSize="22sp"
                     android:textStyle="bold"/>
 
                 <androidx.recyclerview.widget.RecyclerView
