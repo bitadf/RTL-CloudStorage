@@ -6,11 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pcstorage.R
+import com.example.pcstorage.ToggleArrows
 import com.example.pcstorage.adapter.HomeGridAdapter
 import com.example.pcstorage.adapter.HomeRecyclerAdapter
 import com.example.pcstorage.data.HomeGridItem
@@ -60,26 +62,39 @@ class ProfileFragment : Fragment() {
             "فولدر دو"
         )
         folderRecycler = binding.profileSharedFolderRecycler
+        folderRecycler.isNestedScrollingEnabled = false
         folderRecycler.layoutManager = GridLayoutManager(requireContext() , 2)
         val folderItem = mutableListOf<HomeGridItem>()
         for(i in folderTitles.indices){
-            folderItem.add(HomeGridItem(folderTitles[i] , "230Gb" , bgColors[i] , colors[i]))
+            folderItem.add(HomeGridItem(folderTitles[i] , "220 گیگ" , bgColors[i] , colors[i]))
         }
-        folderAdapter = HomeGridAdapter(folderItem)
+        folderAdapter = HomeGridAdapter(requireContext() , folderItem){
+                position, item ->
+            Toast.makeText(requireContext() , "clicked on ${item.title}" , Toast.LENGTH_SHORT).show()
+        }
         folderRecycler.adapter = folderAdapter
 
         val sharedFileItem = listOf(
-            RecentUploadsItem("dick.txt" , "22/22/22" , "250Mb" , 1) ,
-            RecentUploadsItem("dick.txt" , "22/22/22" , "250Mb" , 1) ,
-            RecentUploadsItem("dick.txt" , "22/22/22" , "250Mb" , 1) ,
-            RecentUploadsItem("dick.txt" , "22/22/22" , "250Mb" , 1) ,
-            RecentUploadsItem("dick.txt" , "22/22/22" , "250Mb" , 1) ,
-            RecentUploadsItem("dick.txt" , "22/22/22" , "250Mb" , 1) ,
+            RecentUploadsItem("dick.txt" , "22/22/22" , "220 گیگ" , 1) ,
+            RecentUploadsItem("dick.txt" , "22/22/22" , "220 گیگ" , 1) ,
+            RecentUploadsItem("dick.txt" , "22/22/22" , "220 گیگ" , 1) ,
+            RecentUploadsItem("dick.txt" , "22/22/22" , "220 گیگ" , 1) ,
+            RecentUploadsItem("dick.txt" , "22/22/22" , "220 گیگ" , 1) ,
+            RecentUploadsItem("dick.txt" , "22/22/22" , "220 گیگ" , 1) ,
         )
         fileRecycler = binding.profileSharedFilesRecycler
+        fileRecycler.isNestedScrollingEnabled = false
         fileRecycler.layoutManager = LinearLayoutManager(requireContext())
         fileAdapter = HomeRecyclerAdapter(sharedFileItem)
         fileRecycler.adapter = fileAdapter
+
+
+        ///set up arrow toggle
+        val folderArrow = binding.profileFoldersArrowIcon
+        ToggleArrows.setUpToggle(folderRecycler , folderArrow)
+
+        val fileArrow = binding.profileFilesArrowIcon
+        ToggleArrows.setUpToggle(fileRecycler , fileArrow)
     }
 
 

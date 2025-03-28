@@ -1,5 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!-- res/drawable/progress_color.xml -->
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-<item android:drawable="@drawable/progress_background"/>
-    <item android:drawable="@drawable/progress_line"/>
+    <!-- Background layer -->
+    <item android:id="@android:id/background">
+        <shape>
+            <solid android:color="#E0E0E0" /> <!-- Gray background -->
+            <corners android:radius="100dp" /> <!-- Circular shape -->
+        </shape>
+    </item>
+    <!-- Progress layer (clipped to show progress) -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <solid android:color="#FF5722" /> <!-- Orange progress -->
+                <corners android:radius="100dp" /> <!-- Circular shape -->
+            </shape>
+        </clip>
+    </item>
 </layer-list>

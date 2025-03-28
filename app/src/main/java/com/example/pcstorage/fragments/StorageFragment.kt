@@ -51,13 +51,14 @@ class StorageFragment : Fragment() {
         )
         val progress = listOf(25, 35, 80, 60, 10, 40)
         var items = mutableListOf<StorageTrackItem>()
-        for(i in titles.indices){
-            items.add(StorageTrackItem(colors[i] , titles[i] , 100 , progress[i]))
+        for (i in titles.indices) {
+            items.add(StorageTrackItem(colors[i], titles[i], 100, progress[i]))
         }
 
         storageAdapter = StorageTrackAdapter(items)
         storageRecycler.adapter = storageAdapter
+
+        binding.storageProgressBar.isIndeterminate = false
+        binding.storageProgressBar.progress = 20
     }
-
-
 }

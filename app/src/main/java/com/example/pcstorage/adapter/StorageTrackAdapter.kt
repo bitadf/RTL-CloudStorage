@@ -34,7 +34,7 @@ class StorageTrackAdapter(private val storageItemList : List<StorageTrackItem>):
         val currentItem = storageItemList[position]
         holder.icon.setColorFilter(currentItem.color)
         holder.title.text = currentItem.title
-        holder.size.text = "${currentItem.size.toString()} Mb"
+        holder.size.text = "${currentItem.size.toString()} گیگ "
         holder.progress.trackColor = currentItem.color
         holder.progress.progress = currentItem.progress
     }

@@ -45,16 +45,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Images"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold"
-            android:fontFamily="@font/sahel_font"
+
             />
         <TextView
             android:id="@+id/home_storage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Images"
-            android:textSize="22sp"
+            android:textSize="14sp"
+
             
             />
 

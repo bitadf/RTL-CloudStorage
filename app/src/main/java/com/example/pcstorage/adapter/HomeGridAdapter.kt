@@ -1,5 +1,6 @@
 package com.example.pcstorage.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.pcstorage.R
 import com.example.pcstorage.data.HomeGridItem
 
-class HomeGridAdapter(private  val cardList : List<HomeGridItem>):
+class HomeGridAdapter(
+    private val context: Context ,
+    private  val cardList : List<HomeGridItem> ,
+    private val onItemClick : ((position : Int , item : HomeGridItem) -> Unit)? = null):
 RecyclerView.Adapter<HomeGridAdapter.ViewHolder>(){
 
     class ViewHolder(view:View) : RecyclerView.ViewHolder(view){
@@ -39,6 +43,10 @@ RecyclerView.Adapter<HomeGridAdapter.ViewHolder>(){
         holder.title.setTextColor(card.color)
         holder.storage.text = card.filledStorage
         holder.storage.setTextColor(card.color)
+
+        holder.cardView.setOnClickListener{
+            onItemClick?.invoke(position , card)
+        }
 
     }
 }

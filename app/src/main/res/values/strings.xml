@@ -14,11 +14,17 @@
     <string name="folders">پوشه ها</string>
     <string name="recent_uploads">آپلود های اخیر</string>
     <string name="inProgress">درحال بارگذاری</string>
-    <string name="available_resources">فضای آزاد</string>
-    <string name="total_storage">کل حافظه</string>
+    <string name="available_resources">فضای آزاد:</string>
+    <string name="total_storage">کل حافظه:</string>
     <string name="filled_space">فضای اشغال</string>
     <string name="other">سایر</string>
     <string name="change_password">تغییر رمز عبور</string>
     <string name="shared_folders">پوشه های مشترک</string>
     <string name="shared_files">فایل های مشترک</string>
+    <string name="cancel_upload">لغو بارگذاری</string>
+    <string name="cancel">لفو</string>
+    <string name="ok">تایید</string>
+    <string name="select_folder">انتخاب پوشه</string>
+    <string name="add_new_folder">افزودن پوشه ی جدید</string>
+    <string name="folder_name">نام پوشه</string>
 </resources>

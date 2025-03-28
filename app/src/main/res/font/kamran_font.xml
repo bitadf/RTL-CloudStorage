@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <font-family xmlns:android="http://schemas.android.com/apk/res/android">
-    <font android:fontStyle="normal" android:fontWeight="700" android:font="@font/b_kamran"/>
-    <font android:fontStyle="normal" android:fontWeight="1000" android:font="@font/b_kamran_bold"/>
+    <font android:fontStyle="normal" android:fontWeight="400" android:font="@font/b_kamran"/>
+    <font android:fontStyle="normal" android:fontWeight="700" android:font="@font/b_kamran_bold"/>
 </font-family>
