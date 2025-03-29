@@ -1,7 +1,9 @@
 package com.example.pcstorage.fragments
 
 import android.annotation.SuppressLint
+import android.app.Activity.RESULT_OK
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
@@ -99,7 +102,7 @@ class AddFragment : Fragment() {
         }
         recentRecycler.adapter = recentAdapter
 
-        folderViewModel = ViewModelProvider(this).get(FolderViewModel::class.java)
+        folderViewModel = ViewModelProvider(requireActivity()).get(FolderViewModel::class.java)
 
 
         //set up arrow toggle
@@ -110,6 +113,18 @@ class AddFragment : Fragment() {
         ToggleArrows.setUpToggle(recentRecycler, recentArrow)
         ///////////////////////////////////////////////////
 
+        val pickFileLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+            result ->
+            if(result.resultCode == RESULT_OK){
+                result.data?.data?.let { uri ->
+                    // Handle the selected file URI here
+                    Toast.makeText(requireContext(), "File selected: $uri", Toast.LENGTH_SHORT).show()
+                    // You can now use the URI to access the file
+                }
+            } else {
+                Toast.makeText(requireContext(), "File selection canceled", Toast.LENGTH_SHORT).show()
+            }
+        }
         //add
         var selectedFolder: String? = null
         binding.addButton.setOnClickListener {
@@ -118,8 +133,16 @@ class AddFragment : Fragment() {
                 this,
                 folderViewModel
             ) { selectedFolder -> // Lambda callback
+
+                Toast.makeText(requireContext(), "Folder: $selectedFolder", Toast.LENGTH_SHORT).show()
                 if (selectedFolder != null) {
-                    Toast.makeText(requireContext(), selectedFolder, Toast.LENGTH_SHORT).show()
+                    val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
+                        addCategory(Intent.CATEGORY_OPENABLE)
+                        type = "*/*"
+                    }
+                    pickFileLauncher.launch(intent)
+                } else {
+                    Toast.makeText(requireContext(), "No folder selected", Toast.LENGTH_SHORT).show()
                 }
 
             }

@@ -64,11 +64,17 @@ object Dialogs {
                      viewModel: FolderViewModel ,
                      onFolderSelected : (String?) -> Unit) {
         val items = mutableListOf<String>()
+        val deletedItems = listOf( "تصاویر" , "فیلم ها" , "اسناد")
         var selectedFolder : String? = null
+
         viewModel.folderName.observe(fragment.viewLifecycleOwner){
-            folders ->
+            folders->
             items.clear()
-            items.addAll(folders)
+            folders.forEachIndexed { index, s ->
+                if(!deletedItems.contains(s)){
+                    items.add(s)
+                }
+            }
         }
         val selectAlert = AlertDialog.Builder(context)
             .setTitle(getString(context , R.string.select_folder))
