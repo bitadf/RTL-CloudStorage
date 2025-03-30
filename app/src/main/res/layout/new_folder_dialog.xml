@@ -9,7 +9,7 @@
         app:cardElevation="12dp"
         android:backgroundTint="@color/early_down"
         android:padding="10dp"
-    android:layout_margin="10dp"
+        android:layout_margin="10dp"
 >
     <LinearLayout
         android:id="@+id/dialog_title"

@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.pcstorage.ChangeFragments
 import com.example.pcstorage.Dialogs
 import com.example.pcstorage.FolderViewModel
 import com.example.pcstorage.R
@@ -73,7 +74,9 @@ class HomeFragment : Fragment() {
         foldersRecyclerView.layoutManager = GridLayoutManager(requireContext() , 2)
         gridAdapter = HomeGridAdapter(requireContext() , folders){
                 position, item ->
+
             Toast.makeText(requireContext() , "clicked on ${item.title}" , Toast.LENGTH_SHORT).show()
+            ChangeFragments.changeFragmentPassString(requireActivity() , ShowFileFragment() , "show_file" , item.title)
         }
         foldersRecyclerView.adapter = gridAdapter
 

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layoutDirection="rtl"
+    android:backgroundTint="@android:color/transparent"
+    android:layout_marginVertical="2dp"
+    app:strokeColor="@android:color/transparent"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/file_icon_recycler"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/word"
+            app:shapeAppearance="@style/custom_shape"
+
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/file_icon_recycler"
+            android:layout_margin="10dp">
+            <TextView
+                android:id="@+id/file_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="fileName"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/file_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="333Gb"
+                android:textSize="12sp"
+                android:textColor="@color/grey"
+                />
+        </LinearLayout>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/file_cloud_download_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/baseline_download_24"
+            android:tint="@color/pastel_green"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="10dp"/>
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/file_progress_indicator"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+
+            app:layout_constraintBottom_toBottomOf="@id/file_cloud_download_icon"
+            app:layout_constraintTop_toTopOf="@id/file_cloud_download_icon"
+            app:layout_constraintStart_toStartOf="@id/file_cloud_download_icon"
+            app:layout_constraintEnd_toEndOf="@id/file_cloud_download_icon"
+            android:elevation="5dp"
+
+            app:trackColor="@color/grey"
+            app:indicatorColor="@color/pastel_green"
+            app:trackThickness="4dp"
+            app:indicatorSize="50dp"
+            android:progress="60"
+
+            app:indicatorDirectionCircular="clockwise"
+            android:visibility="gone"
+            />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/file_delete_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/baseline_delete_24"
+            android:tint="@color/carnation"
+            app:layout_constraintEnd_toStartOf="@id/file_cloud_download_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginHorizontal="15dp"
+/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -3,7 +3,12 @@ package com.example.pcstorage.fragments
 import android.annotation.SuppressLint
 import android.app.Activity.RESULT_OK
 import android.app.AlertDialog
+import android.content.ContentProvider
+import android.content.ContentResolver
+import android.content.Context
 import android.content.Intent
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -12,6 +17,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
@@ -40,6 +46,8 @@ class AddFragment : Fragment() {
 
     private lateinit var folderViewModel : FolderViewModel
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -48,6 +56,7 @@ class AddFragment : Fragment() {
         return binding.root
     }
 
+    @RequiresApi(Build.VERSION_CODES.Q)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -111,19 +120,28 @@ class AddFragment : Fragment() {
 
         val recentArrow = binding.addRecentUploadArrowIcon
         ToggleArrows.setUpToggle(recentRecycler, recentArrow)
-        ///////////////////////////////////////////////////
 
-        val pickFileLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
-            result ->
-            if(result.resultCode == RESULT_OK){
-                result.data?.data?.let { uri ->
-                    // Handle the selected file URI here
-                    Toast.makeText(requireContext(), "File selected: $uri", Toast.LENGTH_SHORT).show()
-                    // You can now use the URI to access the file
-                }
-            } else {
-                Toast.makeText(requireContext(), "File selection canceled", Toast.LENGTH_SHORT).show()
+
+        ///////////////////////////////////////////////////pick a file
+        val contentResolver = requireContext().contentResolver
+        val getContent = registerForActivityResult(ActivityResultContracts.GetContent()){uri : Uri? ->
+
+            if(uri != null){
+                val type = contentResolver.getType(uri)
+                Toast.makeText(requireContext() , "file of type $type" , Toast.LENGTH_SHORT).show()
+
             }
+        }
+        val getMultipleFiles = registerForActivityResult(ActivityResultContracts.OpenMultipleDocuments()){
+            uris : List<Uri>? ->
+            if(!uris.isNullOrEmpty()){
+                Toast.makeText(requireContext() , "${uris.size} files attached" , Toast.LENGTH_SHORT).show()
+                for(uri in uris ){
+                    val type = contentResolver.getType(uri)
+                    Log.i("Attached_files" , type.toString())
+                }
+            }
+
         }
         //add
         var selectedFolder: String? = null
@@ -133,14 +151,10 @@ class AddFragment : Fragment() {
                 this,
                 folderViewModel
             ) { selectedFolder -> // Lambda callback
-
                 Toast.makeText(requireContext(), "Folder: $selectedFolder", Toast.LENGTH_SHORT).show()
                 if (selectedFolder != null) {
-                    val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
-                        addCategory(Intent.CATEGORY_OPENABLE)
-                        type = "*/*"
-                    }
-                    pickFileLauncher.launch(intent)
+                    //getContent.launch("*/*")
+                    getMultipleFiles.launch(arrayOf("*/*"))
                 } else {
                     Toast.makeText(requireContext(), "No folder selected", Toast.LENGTH_SHORT).show()
                 }

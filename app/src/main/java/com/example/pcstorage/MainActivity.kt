@@ -66,20 +66,21 @@ class MainActivity : AppCompatActivity() {
 
             return super.onOptionsItemSelected(item)
         }
-    override fun onBackPressed() {
-
-
-        val currentFragment = supportFragmentManager.findFragmentById(R.id.main_frame)
-        if(currentFragment !is HomeFragment){
-            bottomNavigationView.setOnItemSelectedListener(null)
-            changeFragment(HomeFragment())
-            binding.bottomNav.selectedItemId = R.id.bottom_nav_home
-            setUpBottomNavigation(bottomNavigationView)
-
-        }
-        else onBackPressedDispatcher.onBackPressed()
-
-    }
+//    override fun onBackPressed() {
+//        super.onBackPressed()
+//
+//
+//        val currentFragment = supportFragmentManager.findFragmentById(R.id.main_frame)
+//        if(currentFragment !is HomeFragment){
+//            bottomNavigationView.setOnItemSelectedListener(null)
+//            changeFragment(HomeFragment())
+//            binding.bottomNav.selectedItemId = R.id.bottom_nav_home
+//            setUpBottomNavigation(bottomNavigationView)
+//
+//        }
+//        else onBackPressedDispatcher.onBackPressed()
+//
+//    }
 
         fun setUpBottomNavigation(bottomnav : BottomNavigationView){
 
@@ -140,6 +141,7 @@ class MainActivity : AppCompatActivity() {
                     toolbarTitle.text = getString(R.string.Profile)
                     supportActionBar?.setDisplayHomeAsUpEnabled(true)
                 }
+                else -> supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
             }
         }
