@@ -88,14 +88,12 @@ class MainActivity : AppCompatActivity() {
                 when (it.itemId) {
                     R.id.bottom_nav_home -> {
                         changeFragment(HomeFragment())
-
                         true
 
                     }
 
                     R.id.bottom_nav_add -> {
                         changeFragment(AddFragment())
-
                         true
                     }
 

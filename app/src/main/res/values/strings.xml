@@ -27,4 +27,13 @@
     <string name="select_folder">انتخاب پوشه</string>
     <string name="add_new_folder">افزودن پوشه ی جدید</string>
     <string name="folder_name">نام پوشه</string>
+    <string name="login_to_your_account">ورود به پروفایل</string>
+    <string name="email">ایمیل</string>
+    <string name="password">رمز عبور</string>
+    <string name="dont_have_an_account">حساب کاربری ندارید؟</string>
+    <string name="signup_now">ثبت نام کنبد</string>
+    <string name="Login">ورود</string>
+    <string name="signup">ثبت نام</string>
+    <string name="name">نام</string>
+    <string name="already_have_an_account">حساب کاربری دارید؟</string>
 </resources>

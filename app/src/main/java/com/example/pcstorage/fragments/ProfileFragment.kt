@@ -1,5 +1,7 @@
 package com.example.pcstorage.fragments
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.os.MemoryFile
 import androidx.fragment.app.Fragment
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pcstorage.R
+import com.example.pcstorage.StartActivity
 import com.example.pcstorage.ToggleArrows
 import com.example.pcstorage.adapter.HomeGridAdapter
 import com.example.pcstorage.adapter.HomeRecyclerAdapter
@@ -95,6 +98,17 @@ class ProfileFragment : Fragment() {
 
         val fileArrow = binding.profileFilesArrowIcon
         ToggleArrows.setUpToggle(fileRecycler , fileArrow)
+
+
+        ////handle logout
+        val sharedPref = requireActivity().getSharedPreferences("AppPrefs" , Context.MODE_PRIVATE)
+        binding.profileLogoutIcon.setOnClickListener{
+            sharedPref.edit().putBoolean("LoggedIn" , false).apply()
+            startActivity(Intent(requireContext() , StartActivity::class.java))
+        }
+
+        //setupProfile
+        binding.profileEmailText.text = sharedPref.getString("Email" , "No email found")
     }
 
 
